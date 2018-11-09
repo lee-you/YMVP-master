@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion setup.compileSdk
+    buildToolsVersion setup.buildTools
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId "io.liyou.sample"
+        minSdkVersion setup.minSdk
+        targetSdkVersion setup.targetSdk
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':ymvp')
+    testImplementation "junit:junit:${versions.junit}"
+    implementation "com.android.support:support-v4:${versions.supportLib}"
+    implementation "com.android.support:appcompat-v7:${versions.supportLib}"
+    implementation "com.android.support:recyclerview-v7:${versions.supportLib}"
+    implementation "com.android.support:design:${versions.supportLib}"
+    //绑定UI
+    annotationProcessor "com.jakewharton:butterknife-compiler:${versions.butterknife}"
+    implementation "thereisnospon.codeview:codeview:${versions.codeview}"
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:${versions.BaseRecyclerViewAdapterHelper}"
+    implementation "com.lzy.net:okgo:3.0.4"
+    implementation "com.lzy.net:okrx2:2.0.2"
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+}
